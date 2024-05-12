@@ -1,4 +1,6 @@
 import express from "express";
+import { config } from "dotenv";
+config();
 import cookieParser from "cookie-parser";
 import sessions from "express-session";
 import viewRouter from "./routes/viewRouter.mjs";
