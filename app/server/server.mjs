@@ -4,15 +4,6 @@ config();
 import app from "../app.mjs";
 import logger from "../utils/logger.mjs";
 
-// Costum key value pairs for the logger
-export const requestedLog = {};
-
-const childLogger = logger.child({
-  method: "GET",
-  url: "/auth/status",
-  protocol: "http",
-  host: "localhost:3000",
-});
 // Connect to the database
 const DB = process.env.DATABASE;
 mongoose.connect(DB).then(() => {

@@ -1,14 +1,12 @@
 import { Router } from "express";
-import {
-  getAuthPage,
-  getUserDashboard,
-} from "../controllers/viewController.mjs";
+import * as viewController from "../controllers/viewController.mjs";
+
 const router = Router();
 
-router.get("/", getAuthPage);
-router.get("/user-homepage", getUserDashboard);
+router.get("/", viewController.getAuthPage);
+router.get("/user-homepage", viewController.getUserDashboard);
 router.get("/login", (req, res) => {
-  res.render("oauth-page", { message: req.flash("error") }); // Pass error message (if any) to the signin view
+  res.render("oauth-page", { message: req.flash("error") });
 });
 
 export default router;
